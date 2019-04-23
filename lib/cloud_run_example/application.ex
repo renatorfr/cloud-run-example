@@ -11,7 +11,7 @@ defmodule CloudRunExample.Application do
     import Supervisor.Spec
 
     children = [
-      supervisor(Repo, []),
+      # supervisor(Repo, []),
       supervisor(Endpoint, [])
     ]
 

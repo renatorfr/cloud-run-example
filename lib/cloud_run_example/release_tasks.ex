@@ -1,9 +1,9 @@
 defmodule CloudRunExample.ReleaseTasks do
-  @start_apps ~w(crypto ssl postgrex ecto_sql)a
+  @start_apps ~w(crypto ssl)a
 
   def migrate do
     start_services()
-    run_migrations()
+    # run_migrations()
     stop_services()
   end
 
@@ -13,8 +13,8 @@ defmodule CloudRunExample.ReleaseTasks do
     IO.puts("Starting dependencies…")
     Enum.each(@start_apps, &Application.ensure_all_started/1)
 
-    IO.puts("Starting repos…")
-    Enum.each(repos(), & &1.start_link(pool_size: 2))
+    # IO.puts("Starting repos…")
+    # Enum.each(repos(), & &1.start_link(pool_size: 2))
   end
 
   defp run_migrations do
